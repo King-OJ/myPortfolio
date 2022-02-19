@@ -17,10 +17,20 @@ export default function Contact() {
             </div>
             <div className="right">
                 <h2>Contact</h2>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" placeholder="Email" className="" />
-                    <textarea placeholder="Message"></textarea>
-                    <button>Send</button>
+                <form
+                action="https://formspree.io/f/moqrdkaw"
+                method="POST"
+                onSubmit={handleSubmit}>
+                    <input 
+                    type="text" 
+                    placeholder="Email"
+                    name="email" 
+                    className="" />
+                    <textarea 
+                    placeholder="Message"
+                    name="message"
+                    ></textarea>
+                    <button type="submit">Send</button>
                     {message && <span>Thanks, I will reply ASAP!</span>}
                 </form>
             </div>
