@@ -6,8 +6,7 @@ export default function Contact() {
 
     const [contact, setContact]= useState({email: "", msg: "",})
     
-    function handleSubmit(e){
-        e.preventDefault();
+    function handleSubmit(){
         setContact({email: "", msg: "",})   
     }
 
@@ -38,7 +37,7 @@ export default function Contact() {
                     value={contact.msg}
                     onChange={(e)=>setContact((oldContact)=>{ return {...oldContact, msg: e.target.value}})}
                     ></textarea>
-                    <button type="submit">Send</button>
+                    <button type="submit" onSubmit={handleSubmit}>Send</button>
              
                 </form>
             </div>
