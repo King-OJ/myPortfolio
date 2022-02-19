@@ -1,15 +1,14 @@
 import { useState } from "react";
+import { useForm, ValidationError } from '@formspree/react';
 import "./contact.scss"
 
 export default function Contact() {
 
-    const [message, setMessage] = useState(false)
     const [contact, setContact]= useState({email: "", msg: "",})
     
     function handleSubmit(e){
         e.preventDefault();
-        setContact({email: "", msg: "",})
-        setMessage(!message)
+        setContact({email: "", msg: "",})   
     }
 
     return (
@@ -22,7 +21,7 @@ export default function Contact() {
                 <form
                 action="https://formspree.io/f/moqrdkaw"
                 method="POST"
-                onSubmit={handleSubmit}>
+                >
                     <input 
                     type="text" 
                     placeholder="Email"
@@ -40,7 +39,7 @@ export default function Contact() {
                     onChange={(e)=>setContact((oldContact)=>{ return {...oldContact, msg: e.target.value}})}
                     ></textarea>
                     <button type="submit">Send</button>
-                    {message && <span>Thanks, I will reply ASAP!</span>}
+             
                 </form>
             </div>
         </div>
