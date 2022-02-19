@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm, ValidationError } from '@formspree/react';
+import shake from "./shake.svg"
 import "./contact.scss"
 
 export default function Contact() {
@@ -13,7 +13,7 @@ export default function Contact() {
     return (
         <div className="contact" id="contact">
             <div className="left">
-                <img src="assets/shake.svg" alt="" />
+                <img src={shake} alt="hands picture" />
             </div>
             <div className="right">
                 <h2>Contact</h2>
