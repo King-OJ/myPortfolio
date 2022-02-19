@@ -4,9 +4,11 @@ import "./contact.scss"
 export default function Contact() {
 
     const [message, setMessage] = useState(false)
+    const [contact, setContact]= useState({email: "", msg: "",})
     
     function handleSubmit(e){
         e.preventDefault();
+        setContact({email: "", msg: "",})
         setMessage(!message)
     }
 
@@ -25,10 +27,17 @@ export default function Contact() {
                     type="text" 
                     placeholder="Email"
                     name="email" 
-                    className="" />
+                    className="" 
+                    value={contact.email}
+                    onChange={
+                        (e)=>setContact((oldContact)=>{ return {...oldContact, email: e.target.value} })
+                    }
+                    />
                     <textarea 
                     placeholder="Message"
                     name="message"
+                    value={contact.msg}
+                    onChange={(e)=>setContact((oldContact)=>{ return {...oldContact, msg: e.target.value}})}
                     ></textarea>
                     <button type="submit">Send</button>
                     {message && <span>Thanks, I will reply ASAP!</span>}
